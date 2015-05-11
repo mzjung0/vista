@@ -1,0 +1,26 @@
+Angular here
+<div ui-view class="main"></div>
+
+<h1>Areas</h1>
+
+<table border="1">
+<thead>
+  <th>Area Code</th>
+  <th>Area Name</th>
+  <th>Status</th>
+</thead>
+<tbody>
+    <% @areas.each do |a| %>
+      <tr>
+        <td>
+          <input type="text" value="<%= a['area_code'] %>" />
+        </td>
+        <td>
+          <input type="text" value="<%= a['area_name'] %>" />
+        </td>
+        <td>
+          <input type="text" value="<%= a['status'] %>" />
+        </td>
+      </tr>
+    <% end %>
+</table>

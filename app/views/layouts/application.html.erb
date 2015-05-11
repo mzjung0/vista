@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vista</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <base href="/">
+</head>
+<body ng-app="klaseko">
+  <div class="container"><%= yield %></div>
+  <%= javascript_include_tag 'application' %>
+</body>
+</html>
