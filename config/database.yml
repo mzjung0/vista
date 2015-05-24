@@ -1,4 +1,4 @@
-# db yml modification
+# db yml modification, this is a test
 
 default: &default
   adapter: postgresql
