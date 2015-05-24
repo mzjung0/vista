@@ -18,3 +18,5 @@
 
 /config/deploy/*
 /config/deploy.rb
+/config/database.yml
+/config/secrets.yml
