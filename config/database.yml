@@ -8,12 +8,6 @@ default: &default
 
 development:
   <<: *default
-  # test AWS database
-  # database: production
-  # host: klaseko-rds.chldfr6faokz.ap-southeast-1.rds.amazonaws.com
-  # port: 5432
-  # username: klasekordsmaster
-  # password: $2a$10$tNbCczhufXiQUEi1mV
   database: vista_development
 
   # The specified database role being used to connect to postgres.
