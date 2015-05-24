@@ -13,11 +13,13 @@
 
 
 //= require jquery
+//= require jquery_ujs
 //= require angular
 //= require angular-ui-router
 //= require angular-rails-templates
 //= require lodash
 //= require restangular
 //= require angucomplete
+//= require jquery.growl
 //= require_tree ../templates
 //= require_tree ./ng-app

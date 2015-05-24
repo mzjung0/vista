@@ -47,6 +47,8 @@ gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-moment'
 gem 'rails-assets-angular-resource'
 
+gem 'capistrano'
+gem 'capistrano-ext'
 
 group :development, :test do
   gem 'pry'

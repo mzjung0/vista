@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419103757) do
+ActiveRecord::Schema.define(version: 20150517142733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150419103757) do
   create_table "item_prices", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "customer_price_group_id"
-    t.integer  "item_uom_id"
+    t.integer  "uom_id"
     t.decimal  "unit_price",              precision: 8, scale: 2, default: 0.0
     t.string   "status"
     t.date     "effective_date_from"
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20150419103757) do
     t.integer  "salesman_id"
     t.integer  "user_role_id"
     t.integer  "customer_price_group_id"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -250,8 +251,8 @@ ActiveRecord::Schema.define(version: 20150419103757) do
   add_index "vat_postings", ["vat_posting_code"], name: "index_vat_postings_on_vat_posting_code", unique: true, using: :btree
 
   add_foreign_key "customers", "areas"
-  add_foreign_key "item_prices", "item_uoms"
   add_foreign_key "item_prices", "items"
+  add_foreign_key "item_prices", "uoms"
   add_foreign_key "item_uoms", "items"
   add_foreign_key "item_uoms", "uoms"
   add_foreign_key "items", "item_brands"

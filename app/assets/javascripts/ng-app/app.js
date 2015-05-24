@@ -11,6 +11,26 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 	function ($httpProvider, $stateProvider, $locationProvider, $urlRouterProvider, RestangularProvider) {
 
 	RestangularProvider.setBaseUrl("/api");
+	RestangularProvider.setErrorInterceptor(function(response, deferred, responseHandler) {
+    if(response.status === 403) {
+    	if (response.data.status == "NOT_LOGGED_IN"){
+    		alert('Please login to access this page');
+    		window.location = "/";
+    	}
+    	else if (response.data.status == "UNAUTHORIZED"){
+    		alert('Insufficient privileges');
+    	}
+    	else {
+    		alert('An error occurred, please try again');	
+    	}
+  		return false; // error handled
+    }
+  	else {
+  		alert('An error occurred, please try again');	
+  	}
+
+    return true; // error not handled
+	});
 
 	$stateProvider
 		// .state('notfound', {
@@ -76,6 +96,46 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			url: '/app/items',
 			templateUrl: "vista/items.html",
 			controller: "ItemsController"
+		})
+		.state('uoms', {
+			url: '/app/uoms',
+			templateUrl: "vista/uoms.html",
+			controller: "UomsController"
+		})
+		.state('item_uoms', {
+			url: '/app/item_uoms',
+			templateUrl: "vista/item_uoms.html",
+			controller: "ItemUomsController"
+		})
+		.state('item_prices', {
+			url: '/app/item_prices',
+			templateUrl: "vista/item_prices.html",
+			controller: "ItemPricesController"
+		})
+		.state('salesman_customers', {
+			url: '/app/salesman_customers',
+			templateUrl: "vista/salesman_customers.html",
+			controller: "SalesmanCustomersController"
+		})
+		.state('users_list', {
+			url: '/app/users_list',
+			templateUrl: "vista/users/users_list.html",
+			controller: "UsersListController"
+		})
+		.state('users_edit', {
+			url: '/app/users_edit/:id',
+			templateUrl: "vista/users/users_edit.html",
+			controller: "UsersEditController"
+		})
+		.state('users_add', {
+			url: '/app/users_add',
+			templateUrl: "vista/users/users_add.html",
+			controller: "UsersAddController"
+		})
+		.state('users_change_password', {
+			url: '/app/users_change_password/:id',
+			templateUrl: "vista/users/users_change_password.html",
+			controller: "UsersChangePasswordController"
 		})
 
 		// .state('backoffice', {

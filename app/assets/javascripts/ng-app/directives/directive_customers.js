@@ -116,7 +116,7 @@ klaseko.directive('customerUpdate', ['Restangular', function(Restangular) {
               '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=discount_groups&field=discount_group_code&value=" title-field="discount_group_code" placeholder="Search Discount Group" selected-object="onDiscountGroupChange" initial-value="{{data.discount_group.label}}"></angucomplete-alt></td>' +
               '<td><input type="text" ng-model=data.warehouse_code /></td>' +
               '<td><input type="text" ng-model=data.ship_to_code /></td>' +
-              '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
+              '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
               '<td><input type="text" ng-model=data.status /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>' + 
               '</form>'
@@ -178,6 +178,7 @@ klaseko.directive('customerAdd', ['Restangular', function(Restangular) {
           $scope.$broadcast('angucomplete-alt:clearInput', 'storetype_ac');
           $scope.$broadcast('angucomplete-alt:clearInput', 'vat_posting_ac');
           $scope.$broadcast('angucomplete-alt:clearInput', 'discount_group_ac');
+          $scope.$broadcast('angucomplete-alt:clearInput', 'customer_price_group_ac');
           $rootScope.$broadcast($scope.endpoint + 'Created');
         })
       }
@@ -203,7 +204,7 @@ klaseko.directive('customerAdd', ['Restangular', function(Restangular) {
               '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=discount_groups&field=discount_group_code&value=" title-field="discount_group_code" placeholder="Search Discount Group" selected-object="onDiscountGroupChange" initial-value="{{data.discount_group.label}}"></angucomplete-alt></td>' +
               '<td><input type="text" ng-model=data.warehouse_code /></td>' +
               '<td><input type="text" ng-model=data.ship_to_code /></td>' +
-              '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
+              '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
               '<td><input type="text" ng-model=data.status /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>' +
               '</form>'

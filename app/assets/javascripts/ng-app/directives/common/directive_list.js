@@ -20,7 +20,7 @@ klaseko.directive('list', ['Restangular', function(Restangular) {
       })
     },
     template: function(element, attrs){
-      return  '<table>' +
+      return  '<table class="table">' +
               '<thead ' + attrs.template + '-header></thead>' +
               '<tbody>' +
               '<tr class="add-row" ' + attrs.template + '-add endpoint="' + attrs.endpoint + '"></' + attrs.template + '-add></tr>' +

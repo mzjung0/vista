@@ -6,6 +6,7 @@ class BaseController < ApplicationController
   end
 
   # before_action :set_default_response_format
+  before_action :authenticate
   before_action :set_includes
   before_action :set_resource, only: [:destroy, :show, :update]
 
@@ -17,8 +18,15 @@ class BaseController < ApplicationController
     if true
     # if @access_allowed || (can? :create, class_of_resource)
       if set_resource(class_of_resource.new(resource_params))
-        get_resource.save
-        render :json => get_resource.as_json
+        resource_saved = get_resource.save
+        if resource_saved
+          render :json => get_resource.as_json
+        else
+          render :status => 500, :json => {
+            status: "CREATE_ERROR",
+            message: "An error occurred during save"
+          }
+        end
       else
         render json: get_resource.errors, status: :unprocessable_entity
       end
@@ -78,6 +86,7 @@ class BaseController < ApplicationController
   def update
     # if @access_allowed || (can? :update, class_of_resource)
     if true
+      binding.pry
       if get_resource.update(resource_params)
         render :json => :true
       else
@@ -89,6 +98,15 @@ class BaseController < ApplicationController
   end
 
   private
+    def authenticate
+      if !signed_in?
+        render :status => 403, :json => {
+          status: 'NOT_LOGGED_IN',
+          message: 'Unauthorized, please login'
+        }
+      end
+    end
+
     # returns the resource from the created instance variable
     # @return [Object]
     def get_resource

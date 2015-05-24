@@ -1,0 +1,23 @@
+<h4>Users <small><a ui-sref="users_add">Create</a></small></h4>
+
+<table class="table">
+  <thead>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Salesman Code</th>
+    <th>Role</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users">
+      <td>{{::user.email}}</td>
+      <td>{{::user.name}}</td>
+      <td>{{::user.salesman.label}}</td>
+      <td>{{::user.role}}</td>
+      <td>
+        <a ui-sref="users_edit({id: user.id})">Edit</a> | 
+        <a ui-sref="users_change_password({id: user.id})">Change Password</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

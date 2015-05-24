@@ -1,21 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'application#index'
 
+  devise_for :users, controllers: { registrations: "registrations" }
+
   get '/app' => 'application#index'
   get '/app/*path' => 'application#index'
 
-  scope '/api' do
+  scope '/api', :defaults => { :format => 'json' } do
     resources :areas, :customer_price_groups, :customers, :discount_groups, :invoices, :item_brands, 
       :item_prices, :item_segments, :item_uoms, :items, :replenishment, :salesman_customers, :salesman_vans,
       :salesman, :storetypes, :uoms, :users, :vans, :vat_postings
-    resources :search, :only => [:index]
+    resources :search, only: [:index]
+    resources :current_user, only: [:index]
   end
   
+  match '/404', to: 'errors#not_found', via: :all
+  match '/500', to: 'errors#error', via: :all
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
