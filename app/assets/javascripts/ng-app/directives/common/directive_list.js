@@ -1,4 +1,4 @@
-klaseko.directive('list', ['Restangular', function(Restangular) {
+klaseko.directive('list', ['$rootScope', 'Restangular', function($rootScope, Restangular) {
   return {
     restrict: 'E',
     scope: {
@@ -20,13 +20,29 @@ klaseko.directive('list', ['Restangular', function(Restangular) {
       })
     },
     template: function(element, attrs){
-      return  '<table class="table">' +
-              '<thead ' + attrs.template + '-header></thead>' +
-              '<tbody>' +
-              '<tr class="add-row" ' + attrs.template + '-add endpoint="' + attrs.endpoint + '"></' + attrs.template + '-add></tr>' +
-              '<tr ' + attrs.template + '-update data="item"' + 'ng-repeat="item in list"></tr>' +
-              '</tbody>' +
-              '</table>'              
+
+      var template =
+        '<table class="table">' +
+        '<thead ' + attrs.template + '-header></thead>' +
+        '<tbody>';
+
+      if ($rootScope.hasOwnProperty('current_privileges') &&
+          $rootScope.current_privileges.hasOwnProperty(attrs.endpoint)){
+        if ($rootScope.current_privileges[attrs.endpoint].hasOwnProperty('create') &&
+            $rootScope.current_privileges[attrs.endpoint]['create']){
+          template += '<tr class="add-row" ' + attrs.template + '-add endpoint="' + attrs.endpoint + '"></' + attrs.template + '-add></tr>';
+        }
+
+        if ($rootScope.current_privileges[attrs.endpoint].hasOwnProperty('update') &&
+            $rootScope.current_privileges[attrs.endpoint]['update']){
+          template += '<tr ' + attrs.template + '-update data="item"' + 'ng-repeat="item in list"></tr>';
+        }
+      }
+      
+      template +=
+        '</tbody></table>';
+
+      return template;
     }
   };
 }]);

@@ -13,7 +13,7 @@
       <td>{{::user.email}}</td>
       <td>{{::user.name}}</td>
       <td>{{::user.salesman.label}}</td>
-      <td>{{::user.role}}</td>
+      <td>{{::user.user_role.label}}</td>
       <td>
         <a ui-sref="users_edit({id: user.id})">Edit</a> | 
         <a ui-sref="users_change_password({id: user.id})">Change Password</a>

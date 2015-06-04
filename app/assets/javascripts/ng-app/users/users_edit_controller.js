@@ -12,6 +12,12 @@ klaseko.controller('UsersEditController', ['$scope', '$location', '$stateParams'
         $.growl.notice({ title: 'Success', message: "User successfully updated!" });
       }
 
+      $scope.onUserRoleChange = function(item){
+        if (item && item.originalObject.hasOwnProperty("id")){
+          $scope.user.user_role_id = item.originalObject.id;
+        }
+      }
+
       $scope.onSalesmanChange = function(item){
         if (item && item.originalObject.hasOwnProperty("id")){
           $scope.user.salesman_id = item.originalObject.id;

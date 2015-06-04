@@ -49,9 +49,8 @@ class BaseController < ApplicationController
   end
 
   # GET /api/v1/{plural_resource_name}
-  def index
-    # if @access_allowed || (can? :read, class_of_resource)
-    if true
+  def index    
+    if can? :read, class_of_resource
       plural_resource_name = "@#{resource_name.pluralize}"
       resources = class_of_resource.where(query_params)
             .page(page_params[:page]) # might not need this after all
@@ -61,14 +60,16 @@ class BaseController < ApplicationController
       instance_variable_set(plural_resource_name, resources)
       render json: instance_variable_get(plural_resource_name)
     else
-      render :json => "GET unauthorized"
+      render status: 403, json: {
+          status: 'UNAUTHORIZED',
+          message: 'Unauthorized, please login'
+        }
     end
   end
 
   # GET /api/v1/{plural_resource_name}/1
   def show
-    if true
-    # if @access_allowed || (can? :read, class_of_resource)
+    if can? :read, class_of_resource
       resource = class_of_resource.where(:id => params[:id]).as_json(:include => @includes).first
       if resource
         render :json => resource.as_json
@@ -78,7 +79,10 @@ class BaseController < ApplicationController
         }
       end
     else          
-      render :json => "GET unauthorized"
+      render status: 403, json: {
+          status: 'UNAUTHORIZED',
+          message: 'Unauthorized, please login'
+        }
     end
   end
 
@@ -86,7 +90,6 @@ class BaseController < ApplicationController
   def update
     # if @access_allowed || (can? :update, class_of_resource)
     if true
-      binding.pry
       if get_resource.update(resource_params)
         render :json => :true
       else
@@ -100,7 +103,7 @@ class BaseController < ApplicationController
   private
     def authenticate
       if !signed_in?
-        render :status => 403, :json => {
+        render status: 403, json: {
           status: 'NOT_LOGGED_IN',
           message: 'Unauthorized, please login'
         }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517142733) do
+ActiveRecord::Schema.define(version: 20150604170605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,21 @@ ActiveRecord::Schema.define(version: 20150517142733) do
     t.string   "status"
     t.datetime "created_at",                                                null: false
     t.datetime "updated_at",                                                null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string   "invoice_number"
+    t.integer  "salesman_id"
+    t.integer  "customer_id"
+    t.string   "ship_to_code"
+    t.string   "original_amount",  default: "0"
+    t.string   "balance_amount",   default: "0"
+    t.date     "invoice_date"
+    t.date     "invoice_due_date"
+    t.string   "document_type"
+    t.string   "status"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "item_brands", force: :cascade do |t|
@@ -156,21 +171,6 @@ ActiveRecord::Schema.define(version: 20150517142733) do
 
   add_index "storetypes", ["storetype_code"], name: "index_storetypes_on_storetype_code", unique: true, using: :btree
 
-  create_table "txn_invoices", force: :cascade do |t|
-    t.string   "invoice_number"
-    t.integer  "salesman_id"
-    t.integer  "customer_id"
-    t.string   "ship_to_code"
-    t.string   "original_amount",  default: "0"
-    t.string   "balance_amount",   default: "0"
-    t.date     "invoice_date"
-    t.date     "invoice_due_date"
-    t.string   "document_type"
-    t.string   "status"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-  end
-
   create_table "txn_replenishment_details", force: :cascade do |t|
     t.integer "txn_replenishment_header_id"
     t.integer "item_id"
@@ -198,7 +198,7 @@ ActiveRecord::Schema.define(version: 20150517142733) do
 
   create_table "user_roles", force: :cascade do |t|
     t.string "role_name"
-    t.string "privileges", default: [], array: true
+    t.json   "privileges"
   end
 
   create_table "users", force: :cascade do |t|
@@ -251,6 +251,8 @@ ActiveRecord::Schema.define(version: 20150517142733) do
   add_index "vat_postings", ["vat_posting_code"], name: "index_vat_postings_on_vat_posting_code", unique: true, using: :btree
 
   add_foreign_key "customers", "areas"
+  add_foreign_key "invoices", "customers"
+  add_foreign_key "invoices", "salesmen"
   add_foreign_key "item_prices", "items"
   add_foreign_key "item_prices", "uoms"
   add_foreign_key "item_uoms", "items"
@@ -260,8 +262,6 @@ ActiveRecord::Schema.define(version: 20150517142733) do
   add_foreign_key "salesman_customers", "salesmen"
   add_foreign_key "salesman_vans", "salesmen"
   add_foreign_key "salesman_vans", "vans"
-  add_foreign_key "txn_invoices", "customers"
-  add_foreign_key "txn_invoices", "salesmen"
   add_foreign_key "txn_replenishment_details", "items"
   add_foreign_key "txn_replenishment_details", "txn_replenishment_headers"
   add_foreign_key "txn_replenishment_headers", "vans"

@@ -52,10 +52,10 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			templateUrl: "vista/discount_groups.html",
 			controller: "DiscountGroupsController"
 		})
-		.state('brands', {
-			url: '/app/brands',
-			templateUrl: "vista/brands.html",
-			controller: "BrandsController"
+		.state('item_brands', {
+			url: '/app/item_brands',
+			templateUrl: "vista/item_brands.html",
+			controller: "ItemBrandsController"
 		})
 		.state('item_segments', {
 			url: '/app/item_segments',
@@ -67,8 +67,8 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			templateUrl: "vista/vans.html",
 			controller: "VansController"
 		})
-		.state('store_types', {
-			url: '/app/store_types',
+		.state('storetypes', {
+			url: '/app/storetypes',
 			templateUrl: "vista/storetypes.html",
 			controller: "StoretypesController"
 		})
@@ -117,6 +117,11 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			templateUrl: "vista/salesman_customers.html",
 			controller: "SalesmanCustomersController"
 		})
+		.state('invoices', {
+			url: '/app/invoices',
+			templateUrl: "vista/invoices.html",
+			controller: "InvoicesController"
+		})
 		.state('users_list', {
 			url: '/app/users_list',
 			templateUrl: "vista/users/users_list.html",
@@ -136,6 +141,21 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			url: '/app/users_change_password/:id',
 			templateUrl: "vista/users/users_change_password.html",
 			controller: "UsersChangePasswordController"
+		})
+		.state('user_roles_list', {
+			url: '/app/user_roles_list',
+			templateUrl: "vista/user_roles/list.html",
+			controller: "UserRolesListController"
+		})
+		.state('user_roles_add', {
+			url: '/app/user_roles_add',
+			templateUrl: "vista/user_roles/add.html",
+			controller: "UserRolesAddController"
+		})
+		.state('user_roles_edit', {
+			url: '/app/user_roles_edit/:id',
+			templateUrl: "vista/user_roles/edit.html",
+			controller: "UserRolesEditController"
 		})
 
 		// .state('backoffice', {
@@ -181,6 +201,16 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 	$locationProvider.html5Mode(true);
 }]);
 
-klaseko.run(function($rootScope, $location, $timeout) {
+klaseko.run(function($rootScope, Restangular) {
+	Restangular.one('current_user', null).get().then(function(data){
+		$rootScope.current_user = data;
+		$rootScope.current_privileges = data.user_role.privileges;
+	});
 
+	$rootScope.$on('$locationChangeSuccess', function(evt) {
+		Restangular.one('current_user', null).get().then(function(data){
+			$rootScope.current_user = data;
+			$rootScope.current_privileges = data.user_role.privileges;
+		});
+	});
 });

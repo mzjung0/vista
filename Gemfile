@@ -24,15 +24,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 
-gem 'devise'
+gem 'devise', '3.4.0'
 
 gem 'angular-rails-templates'
 
-gem 'lodash-rails'
+gem "cancan"
+
+gem "tiny_tds"
 
 platforms :ruby do
   gem 'unicorn'
 end
+
+gem "foreman"
 
 # TZinfo gem for mingw & x64mingw compilers
 gem 'tzinfo'

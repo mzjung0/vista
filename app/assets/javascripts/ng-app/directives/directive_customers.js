@@ -100,24 +100,24 @@ klaseko.directive('customerUpdate', ['Restangular', function(Restangular) {
       
     },
     template: '<form>' +
-              '<td><input type="text" ng-model=data.customer_code /></td>' +
+              '<td><input type="text" ng-model=data.customer_code placeholder="Customer Code" /></td>' +
               '<td><angucomplete-alt id="area_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=areas&field=area_code&value=" title-field="area_code" description-field="area_name" placeholder="Search area" selected-object="onAreaChange" initial-value="{{data.area.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.customer_name /></td>' +
-              '<td><input type="text" ng-model=data.customer_name2 /></td>' +
+              '<td><input type="text" ng-model=data.customer_name placeholder="Customer Name" /></td>' +
+              '<td><input type="text" ng-model=data.customer_name2 placeholder="Customer Name 2" /></td>' +
               '<td><angucomplete-alt id="storetype_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=storetypes&field=storetype_code&value=" title-field="storetype_code" description-field="storetype_name" placeholder="Search store type" selected-object="onStoreTypeChange" initial-value="{{data.storetype.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="vat_posting_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=vat_postings&field=vat_posting_code&value=" title-field="vat_posting_code" description-field="vat_posting_name" placeholder="Search VAT posting type" selected-object="onVATPostingChange" initial-value="{{data.vat_posting.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.vat_ex_flag /></td>' +
-              '<td><input type="text" ng-model=data.address_1 /></td>' +
-              '<td><input type="text" ng-model=data.address_2 /></td>' +
-              '<td><input type="text" ng-model=data.address_3 /></td>' +
-              '<td><input type="text" ng-model=data.contact_name /></td>' +
-              '<td><input type="text" ng-model=data.contact_num /></td>' +
-              '<td><input type="text" ng-model=data.credit_limit /></td>' +
+              '<td><input type="text" ng-model=data.vat_ex_flag placeholder="VAT Ex" /></td>' +
+              '<td><input type="text" ng-model=data.address_1 placeholder="Address 1" /></td>' +
+              '<td><input type="text" ng-model=data.address_2 placeholder="Address 2" /></td>' +
+              '<td><input type="text" ng-model=data.address_3 placeholder="Address 3" /></td>' +
+              '<td><input type="text" ng-model=data.contact_name placeholder="Contact Name" /></td>' +
+              '<td><input type="text" ng-model=data.contact_num placeholder="Contact Number" /></td>' +
+              '<td><input type="text" ng-model=data.credit_limit placeholder="Credit Limit" /></td>' +
               '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=discount_groups&field=discount_group_code&value=" title-field="discount_group_code" placeholder="Search Discount Group" selected-object="onDiscountGroupChange" initial-value="{{data.discount_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.warehouse_code /></td>' +
-              '<td><input type="text" ng-model=data.ship_to_code /></td>' +
+              '<td><input type="text" ng-model=data.warehouse_code placeholder="Warehouse Code" /></td>' +
+              '<td><input type="text" ng-model=data.ship_to_code placeholder="Ship to Code" /></td>' +
               '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>' + 
               '</form>'
   };
@@ -188,24 +188,24 @@ klaseko.directive('customerAdd', ['Restangular', function(Restangular) {
     },
 
     template: '<form>' +
-              '<td><input type="text" ng-model=data.customer_code /></td>' +
+              '<td><input type="text" ng-model=data.customer_code placeholder="Customer Code" /></td>' +
               '<td><angucomplete-alt id="area_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=areas&field=area_code&value=" title-field="area_code" description-field="area_name" placeholder="Search area" selected-object="onAreaChange" initial-value="{{data.area.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.customer_name /></td>' +
-              '<td><input type="text" ng-model=data.customer_name2 /></td>' +
+              '<td><input type="text" ng-model=data.customer_name placeholder="Customer Name" /></td>' +
+              '<td><input type="text" ng-model=data.customer_name2 placeholder="Customer Name 2" /></td>' +
               '<td><angucomplete-alt id="storetype_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=storetypes&field=storetype_code&value=" title-field="storetype_code" description-field="storetype_name" placeholder="Search store type" selected-object="onStoreTypeChange" initial-value="{{data.storetype.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="vat_posting_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=vat_postings&field=vat_posting_code&value=" title-field="vat_posting_code" description-field="vat_posting_name" placeholder="Search VAT posting type" selected-object="onVATPostingChange" initial-value="{{data.vat_posting.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.vat_ex_flag /></td>' +
-              '<td><input type="text" ng-model=data.address_1 /></td>' +
-              '<td><input type="text" ng-model=data.address_2 /></td>' +
-              '<td><input type="text" ng-model=data.address_3 /></td>' +
-              '<td><input type="text" ng-model=data.contact_name /></td>' +
-              '<td><input type="text" ng-model=data.contact_num /></td>' +
-              '<td><input type="text" ng-model=data.credit_limit /></td>' +
+              '<td><input type="text" ng-model=data.vat_ex_flag placeholder="VAT Ex" /></td>' +
+              '<td><input type="text" ng-model=data.address_1 placeholder="Address 1" /></td>' +
+              '<td><input type="text" ng-model=data.address_2 placeholder="Address 2" /></td>' +
+              '<td><input type="text" ng-model=data.address_3 placeholder="Address 3" /></td>' +
+              '<td><input type="text" ng-model=data.contact_name placeholder="Contact Name" /></td>' +
+              '<td><input type="text" ng-model=data.contact_num placeholder="Contact Number" /></td>' +
+              '<td><input type="text" ng-model=data.credit_limit placeholder="Credit Limit" /></td>' +
               '<td><angucomplete-alt id="discount_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=discount_groups&field=discount_group_code&value=" title-field="discount_group_code" placeholder="Search Discount Group" selected-object="onDiscountGroupChange" initial-value="{{data.discount_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.warehouse_code /></td>' +
-              '<td><input type="text" ng-model=data.ship_to_code /></td>' +
+              '<td><input type="text" ng-model=data.warehouse_code placeholder="Warehouse Code" /></td>' +
+              '<td><input type="text" ng-model=data.ship_to_code placeholder="Ship to Code" /></td>' +
               '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>' +
               '</form>'
   };

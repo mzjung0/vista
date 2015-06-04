@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   scope '/api', :defaults => { :format => 'json' } do
     resources :areas, :customer_price_groups, :customers, :discount_groups, :invoices, :item_brands, 
       :item_prices, :item_segments, :item_uoms, :items, :replenishment, :salesman_customers, :salesman_vans,
-      :salesman, :storetypes, :uoms, :users, :vans, :vat_postings
+      :salesmen, :storetypes, :uoms, :users, :user_roles, :vans, :vat_postings
     resources :search, only: [:index]
     resources :current_user, only: [:index]
   end

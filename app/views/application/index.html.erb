@@ -2,26 +2,27 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a ui-sref="areas">Areas</a></li>
-        <li><a ui-sref="discount_groups">Discount Groups</a></li>
-        <li><a ui-sref="brands">Brands</a></li>
-        <li><a ui-sref="item_segments">Item Segments</a></li>
-        <li><a ui-sref="vans">Vans</a></li>
-        <li><a ui-sref="store_types">Store Types</a></li>
-        <li><a ui-sref="salesmen">Salesmen</a></li>
-        <li><a ui-sref="vat_postings">VAT Posting Codes</a></li>
-        <li><a ui-sref="customers">Customers</a></li>
-        <li><a ui-sref="customer_price_groups">Customer Price Groups</a></li>
-        <li><a ui-sref="items">Item Master</a></li>
-        <li><a ui-sref="uoms">Item UOMs</a></li>
-        <li><a ui-sref="item_uoms">Item Master UOMs</a></li>
-        <li><a ui-sref="item_prices">Item Price</a></li>
-        <li><a ui-sref="salesman_customers">Salesman Customers</a></li>
+        <li><a ui-sref="areas" ng-show="current_privileges['areas']['view']">Areas</a></li>
+        <li><a ui-sref="discount_groups" ng-show="current_privileges['discount_groups']['view']">Discount Groups</a></li>
+        <li><a ui-sref="item_brands" ng-show="current_privileges['item_brands']['view']">Brands</a></li>
+        <li><a ui-sref="item_segments" ng-show="current_privileges['item_segments']['view']">Item Segments</a></li>
+        <li><a ui-sref="vans" ng-show="current_privileges['vans']['view']">Vans</a></li>
+        <li><a ui-sref="storetypes" ng-show="current_privileges['storetypes']['view']">Store Types</a></li>
+        <li><a ui-sref="salesmen" ng-show="current_privileges['salesmen']['view']">Salesmen</a></li>
+        <li><a ui-sref="vat_postings" ng-show="current_privileges['vat_postings']['view']">VAT Posting Codes</a></li>
+        <li><a ui-sref="customers" ng-show="current_privileges['customers']['view']">Customers</a></li>
+        <li><a ui-sref="customer_price_groups" ng-show="current_privileges['customer_price_groups']['view']">Customer Price Groups</a></li>
+        <li><a ui-sref="items" ng-show="current_privileges['items']['view']">Item Master</a></li>
+        <li><a ui-sref="uoms" ng-show="current_privileges['uoms']['view']">Item UOMs</a></li>
+        <li><a ui-sref="item_uoms" ng-show="current_privileges['item_uoms']['view']">Item Master UOMs</a></li>
+        <li><a ui-sref="item_prices" ng-show="current_privileges['item_prices']['view']">Item Price</a></li>
+        <li><a ui-sref="salesman_customers" ng-show="current_privileges['salesman_customers']['view']">Salesman Customers</a></li>
+        <li><a ui-sref="invoices" ng-show="current_privileges['invoices']['view']">Invoices</a></li>
       </ul>
       <ul class="nav nav-sidebar">
-        <li><a ui-sref="users_list">Users</a></li>
-        <li><a ui-sref="roles">Roles</a></li>
-        <li><a ui-sref="roles">Logs</a></li>
+        <li><a ui-sref="users_list" ng-show="current_privileges['users']['view']">Users</a></li>
+        <li><a ui-sref="user_roles_list" ng-show="current_privileges['user_roles']['view']">Roles</a></li>
+        <li><a ui-sref="logs" ng-show="current_privileges['logs']['view']">Logs</a></li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

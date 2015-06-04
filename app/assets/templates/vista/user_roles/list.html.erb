@@ -1,0 +1,16 @@
+<h4>User Roles <small><a ui-sref="user_roles_add">Create</a></small></h4>
+
+<table class="table">
+  <thead>
+    <th>Role Name</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="role in roles">
+      <td>{{::role.role_name}}</td>
+      <td>
+        <a ui-sref="user_roles_edit({id: role.id})">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

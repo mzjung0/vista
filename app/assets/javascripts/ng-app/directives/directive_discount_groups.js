@@ -21,9 +21,9 @@ klaseko.directive('discountGroupUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.discount_group_code /></td>' +
-              '<td><input type="text" ng-model=data.discount /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.discount_group_code placeholder="Discount Group Code" /></td>' +
+              '<td><input type="text" ng-model=data.discount placeholder="Discount" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -52,9 +52,9 @@ klaseko.directive('discountGroupAdd', ['Restangular', function(Restangular) {
     },
     
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.discount_group_code /></td>' +
-              '<td><input type="text" ng-model=data.discount /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.discount_group_code placeholder="Discount Group Code" /></td>' +
+              '<td><input type="text" ng-model=data.discount placeholder="Discount" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);

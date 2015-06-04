@@ -1,0 +1,248 @@
+<h4>User Role Create</h4>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Role Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="role.role_name" placeholder="Role Name">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Privileges</label>
+    <div class="col-sm-10">
+      <table class="table">
+        <tr>
+          <td>Module</td>
+          <td>Create <check-all class="create"></check-all></td>
+          <td>Update <check-all class="update"></check-all></td>
+          <td>View <check-all class="view"></check-all></td>
+        </tr>
+        <tr>
+          <td>User Roles</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['user_roles']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['user_roles']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['user_roles']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Users</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['users']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['users']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['users']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Areas</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['areas']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['areas']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['areas']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Brands</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['item_brands']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['item_brands']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['item_brands']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Customer Price Groups</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['customer_price_groups']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['customer_price_groups']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['customer_price_groups']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Customers</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['customers']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['customers']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['customers']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Item Prices</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['item_prices']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['item_prices']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['item_prices']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Item Segments</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['item_segments']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['item_segments']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['item_segments']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Item UOMs</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['item_uoms']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['item_uoms']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['item_uoms']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Items</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['items']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['items']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['items']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Salesman Customers</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['salesman_customers']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['salesman_customers']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['salesman_customers']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Salesmen</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['salesmen']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['salesmen']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['salesmen']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Storetypes</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['storetypes']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['storetypes']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['storetypes']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>UOMs</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['uoms']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['uoms']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['uoms']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Vans</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['vans']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['vans']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['vans']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>VAT Postings</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['vat_postings']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['vat_postings']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['vat_postings']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Discount Groups</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['discount_groups']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['discount_groups']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['discount_groups']['view']" />
+          </td>
+        </tr>
+        <tr>
+          <td>Invoices</td>
+          <td>
+            <input class="create-checkbox" type="checkbox" ng-model="role.privileges['invoices']['create']" />
+          </td>
+          <td>
+            <input class="update-checkbox" type="checkbox" ng-model="role.privileges['invoices']['update']" />
+          </td>
+          <td>
+            <input class="view-checkbox" type="checkbox" ng-model="role.privileges['invoices']['view']" />
+          </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>  
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="save()" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Save</button>
+      <button ui-sref="users_list" class="btn btn-link">Back</button>
+    </div>
+  </div>
+</form>

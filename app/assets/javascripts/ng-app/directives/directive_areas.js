@@ -24,9 +24,9 @@ klaseko.directive('areaUpdate', ['Restangular', function(Restangular) {
       
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.area_code /></td>' +
-              '<td><input type="text" ng-model=data.area_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.area_code placeholder="Area Code" /></td>' +
+              '<td><input type="text" ng-model=data.area_name placeholder="Area Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -56,9 +56,9 @@ klaseko.directive('areaAdd', ['Restangular', function(Restangular) {
     
     template: '<form>' +
               '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.area_code /></td>' +
-              '<td><input type="text" ng-model=data.area_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.area_code placeholder="Area Code" /></td>' +
+              '<td><input type="text" ng-model=data.area_name placeholder="Area Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>' +
               '</form>'
   };

@@ -24,9 +24,9 @@ klaseko.directive('customerPriceGroupUpdate', ['Restangular', function(Restangul
 
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.price_group_code /></td>' +
-              '<td><input type="text" ng-model=data.paid_quantity /></td>' +
-              '<td><input type="text" ng-model=data.free_quantity /></td>' +
+              '<td><input type="text" ng-model=data.price_group_code placeholder="Price Group Code" /></td>' +
+              '<td><input type="text" ng-model=data.paid_quantity placeholder="Paid Quantity" /></td>' +
+              '<td><input type="text" ng-model=data.free_quantity placeholder="Free Quantity" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -58,9 +58,9 @@ klaseko.directive('customerPriceGroupAdd', ['Restangular', function(Restangular)
     },
     
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.price_group_code /></td>' +
-              '<td><input type="text" ng-model=data.paid_quantity /></td>' +
-              '<td><input type="text" ng-model=data.free_quantity /></td>' +
+              '<td><input type="text" ng-model=data.price_group_code placeholder="Price Group Code" /></td>' +
+              '<td><input type="text" ng-model=data.paid_quantity placeholder="Paid Quantity" /></td>' +
+              '<td><input type="text" ng-model=data.free_quantity placeholder="Free Quantity" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);

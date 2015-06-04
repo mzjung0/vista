@@ -21,9 +21,9 @@ klaseko.directive('salesmenUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.salesman_code /></td>' +
-              '<td><input type="text" ng-model=data.salesman_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.salesman_code placeholder="Salesman Code" /></td>' +
+              '<td><input type="text" ng-model=data.salesman_name placeholder="Salesman Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -52,9 +52,9 @@ klaseko.directive('salesmenAdd', ['Restangular', function(Restangular) {
     },
     
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.salesman_code /></td>' +
-              '<td><input type="text" ng-model=data.salesman_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.salesman_code placeholder="Salesman Code" /></td>' +
+              '<td><input type="text" ng-model=data.salesman_name placeholder="Salesman Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);

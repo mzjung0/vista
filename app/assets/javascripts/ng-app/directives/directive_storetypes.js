@@ -21,9 +21,9 @@ klaseko.directive('storetypeUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.storetype_code /></td>' +
-              '<td><input type="text" ng-model=data.storetype_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.storetype_code placeholder="Storetype Code" /></td>' +
+              '<td><input type="text" ng-model=data.storetype_name placeholder="Storetype Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -52,9 +52,9 @@ klaseko.directive('storetypeAdd', ['Restangular', function(Restangular) {
     },
     
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.storetype_code /></td>' +
-              '<td><input type="text" ng-model=data.storetype_name /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.storetype_code placeholder="Storetype Code" /></td>' +
+              '<td><input type="text" ng-model=data.storetype_name placeholder="Storetype Name" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);

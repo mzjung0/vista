@@ -29,10 +29,10 @@ klaseko.directive('vatPostingUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_code /></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_name /></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_rate /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_code placeholder="VAT Posting Code" /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_name placeholder="Name" /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_rate placeholder="Rate" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -64,10 +64,10 @@ klaseko.directive('vatPostingAdd', ['Restangular', function(Restangular) {
     },
     
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_code /></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_name /></td>' +
-              '<td><input type="text" ng-model=data.vat_posting_rate /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_code placeholder="VAT Posting Code" /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_name placeholder="Name" /></td>' +
+              '<td><input type="text" ng-model=data.vat_posting_rate placeholder="Rate" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);

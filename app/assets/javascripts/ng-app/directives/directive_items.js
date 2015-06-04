@@ -39,12 +39,12 @@ klaseko.directive('itemUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +       
-              '<td><input type="text" ng-model=data.item_code /></td>' +       
+              '<td><input type="text" ng-model=data.item_code placeholder="Item Code" /></td>' +       
               '<td><angucomplete-alt id="item_segment_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=item_segments&field=segment_code&value=" title-field="segment_code" description-field="description" placeholder="Search Item Segment Code" selected-object="onItemSegmentChange" initial-value="{{data.item_segment.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="item_brand_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=item_brands&field=brand_code&value=" title-field="brand_code" description-field="description" placeholder="Search Item Brand" selected-object="onItemBrandChange" initial-value="{{data.item_brand.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.description /></td>' +
-              '<td><input type="text" ng-model=data.description2 /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.description placeholder="Description" /></td>' +
+              '<td><input type="text" ng-model=data.description2 placeholder="Description 2" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -93,12 +93,12 @@ klaseko.directive('itemAdd', ['Restangular', function(Restangular) {
     },
 
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.item_code /></td>' +
+              '<td><input type="text" ng-model=data.item_code placeholder="Item Code" /></td>' +  
               '<td><angucomplete-alt id="item_segment_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=item_segments&field=segment_code&value=" title-field="segment_code" description-field="description" placeholder="Search Item Segment Code" selected-object="onItemSegmentChange" initial-value="{{data.item_segment.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="item_brand_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=item_brands&field=brand_code&value=" title-field="brand_code" description-field="description" placeholder="Search Item Brand" selected-object="onItemBrandChange" initial-value="{{data.item_brand.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.description /></td>' +
-              '<td><input type="text" ng-model=data.description2 /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.description placeholder="Description" /></td>' +
+              '<td><input type="text" ng-model=data.description2 placeholder="Description 2" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">Add</button></td>'
   };
 }]);

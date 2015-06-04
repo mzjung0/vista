@@ -8,6 +8,12 @@ klaseko.controller('UsersAddController', ['$scope', '$location', '$stateParams',
         });
       }
 
+      $scope.onUserRoleChange = function(item){
+        if (item && item.originalObject.hasOwnProperty("id")){
+          $scope.user.user_role_id = item.originalObject.id;
+        }
+      }
+
       $scope.onSalesmanChange = function(item){
         if (item && item.originalObject.hasOwnProperty("id")){
           $scope.user.salesman_id = item.originalObject.id;

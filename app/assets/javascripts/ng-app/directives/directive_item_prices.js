@@ -52,10 +52,10 @@ klaseko.directive('itemPriceUpdate', ['Restangular', function(Restangular) {
     template: '<td><angucomplete-alt id="item_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=items&field=item_code&value=" title-field="item_code" description-field="description" placeholder="Search Item Code" selected-object="onItemCodeChange" initial-value="{{data.item.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="uom_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=uoms&field=uom_code&value=" title-field="uom_code" description-field="description" placeholder="Search UOM Code" selected-object="onUomCodeChange" initial-value="{{data.uom.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.unit_price /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
-              '<td><input type="text" class="date" ng-model=data.effective_date_from /></td>' +
-              '<td><input type="text" class="date" ng-model=data.effective_date_to /></td>' +
+              '<td><input type="text" ng-model=data.unit_price placeholder="Unit Price" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
+              '<td><input type="text" class="date" ng-model=data.effective_date_from placeholder="Date From (YYYY-MM-DD)" /></td>' +
+              '<td><input type="text" class="date" ng-model=data.effective_date_to placeholder="Date To (YYYY-MM-DD)" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -119,10 +119,10 @@ klaseko.directive('itemPriceAdd', ['Restangular', function(Restangular) {
     template: '<td><angucomplete-alt id="item_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=items&field=item_code&value=" title-field="item_code" description-field="description" placeholder="Search Item Code" selected-object="onItemCodeChange" initial-value="{{data.item.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="uom_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=uoms&field=uom_code&value=" title-field="uom_code" description-field="description" placeholder="Search UOM Code" selected-object="onUomCodeChange" initial-value="{{data.uom.label}}"></angucomplete-alt></td>' +
               '<td><angucomplete-alt id="customer_price_group_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=customer_price_group&field=price_group_code&value=" title-field="price_group_code" placeholder="Search Customer Price Group" selected-object="onCustomerPriceGroupChange" initial-value="{{data.customer_price_group.label}}"></angucomplete-alt></td>' +
-              '<td><input type="text" ng-model=data.unit_price /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
-              '<td><input type="text" class="date" ng-model=data.effective_date_from placeholder="YYYY-MM-DD" /></td>' +
-              '<td><input type="text" class="date" ng-model=data.effective_date_to placeholder="YYYY-MM-DD" /></td>' +
+             '<td><input type="text" ng-model=data.unit_price placeholder="Unit Price" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
+              '<td><input type="text" class="date" ng-model=data.effective_date_from placeholder="Date From (YYYY-MM-DD)" /></td>' +
+              '<td><input type="text" class="date" ng-model=data.effective_date_to placeholder="Date To (YYYY-MM-DD)" /></td>' +
               '<td><button ng-click="click()">Add</button></td>'
   };
 }]);

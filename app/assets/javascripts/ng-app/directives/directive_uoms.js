@@ -21,9 +21,9 @@ klaseko.directive('uomUpdate', ['Restangular', function(Restangular) {
       }
     },
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.uom_code /></td>' +       
-              '<td><input type="text" ng-model=data.description /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.uom_code placeholder="UOM Code" /></td>' +       
+              '<td><input type="text" ng-model=data.description placeholder="Description" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-show="isDirty" ng-click="click()">{{buttonLabel}}</button></td>'
   };
 }]);
@@ -52,9 +52,9 @@ klaseko.directive('uomAdd', ['Restangular', function(Restangular) {
     },
 
     template: '<td><span>{{data.id}}</span></td>' +
-              '<td><input type="text" ng-model=data.uom_code /></td>' +       
-              '<td><input type="text" ng-model=data.description /></td>' +
-              '<td><input type="text" ng-model=data.status /></td>' +
+              '<td><input type="text" ng-model=data.uom_code placeholder="UOM Code" /></td>' +       
+              '<td><input type="text" ng-model=data.description placeholder="Description" /></td>' +
+              '<td><input type="text" ng-model=data.status placeholder="Status" /></td>' +
               '<td><button ng-click="click()">Add</button></td>'
   };
 }]);
