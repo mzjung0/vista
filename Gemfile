@@ -30,7 +30,7 @@ gem 'angular-rails-templates'
 
 gem "cancan"
 
-gem "tiny_tds"
+# gem "tiny_tds"
 
 platforms :ruby do
   gem 'unicorn'
