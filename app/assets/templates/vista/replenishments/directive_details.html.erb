@@ -1,0 +1,22 @@
+<div class="row">
+  <label class="no-margin" for="institution-contact-numbers">Details <a ng-click="addRow()">Add <i class="fa fa-plus-circle"></i></a>
+  </label>
+</div>
+<div class="row">
+  <table class="table">
+    <tr ng-repeat="(key, val) in data.details track by key">
+      <td>
+        <angucomplete-alt id="item_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=items&field=item_code&value=" title-field="item_code" description-field="item_code" placeholder="Search Item Code" selected-object="onItemCodeChange" initial-value="{{val.item.label}}"></angucomplete-alt>
+      </td>
+      <td>
+        <angucomplete-alt id="uom_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=uoms&field=uom_code&value=" title-field="uom_code" description-field="uom_code" placeholder="Search UOM Code" selected-object="onUomCodeChange" initial-value="{{val.uom.label}}"></angucomplete-alt>
+      </td>
+      <td>
+        <input required ng-required="true" class="no-margin" type="numeric" id="institution-contact-numbers" name="institution-contact-numbers" ng-model="data.details[key].quantity" placeholder="Quantity"/>
+      </td>
+      <td>
+        <button class="button-white full-width no-margin" ng-click="deleteRow(key)"><i class="fa fa-remove"></i>Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>

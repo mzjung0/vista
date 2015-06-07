@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604170605) do
+ActiveRecord::Schema.define(version: 20150607065910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,21 @@ ActiveRecord::Schema.define(version: 20150604170605) do
 
   add_index "items", ["item_code"], name: "index_items_on_item_code", unique: true, using: :btree
 
+  create_table "replenishment_details", force: :cascade do |t|
+    t.integer "replenishment_header_id"
+    t.integer "item_id"
+    t.integer "uom_id"
+    t.integer "quantity",                default: 0
+  end
+
+  create_table "replenishment_headers", force: :cascade do |t|
+    t.string   "reference_number"
+    t.integer  "van_id"
+    t.date     "replenishment_date"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "salesman_customers", force: :cascade do |t|
     t.integer  "salesman_id"
     t.integer  "customer_id"
@@ -170,21 +185,6 @@ ActiveRecord::Schema.define(version: 20150604170605) do
   end
 
   add_index "storetypes", ["storetype_code"], name: "index_storetypes_on_storetype_code", unique: true, using: :btree
-
-  create_table "txn_replenishment_details", force: :cascade do |t|
-    t.integer "txn_replenishment_header_id"
-    t.integer "item_id"
-    t.integer "item_uom_id"
-    t.integer "quantity",                    default: 0
-  end
-
-  create_table "txn_replenishment_headers", force: :cascade do |t|
-    t.string   "reference_number"
-    t.integer  "van_id"
-    t.date     "replenishment_date"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-  end
 
   create_table "uoms", force: :cascade do |t|
     t.string   "uom_code"
@@ -258,12 +258,13 @@ ActiveRecord::Schema.define(version: 20150604170605) do
   add_foreign_key "item_uoms", "items"
   add_foreign_key "item_uoms", "uoms"
   add_foreign_key "items", "item_brands"
+  add_foreign_key "replenishment_details", "items"
+  add_foreign_key "replenishment_details", "replenishment_headers"
+  add_foreign_key "replenishment_details", "uoms"
+  add_foreign_key "replenishment_headers", "vans"
   add_foreign_key "salesman_customers", "customers"
   add_foreign_key "salesman_customers", "salesmen"
   add_foreign_key "salesman_vans", "salesmen"
   add_foreign_key "salesman_vans", "vans"
-  add_foreign_key "txn_replenishment_details", "items"
-  add_foreign_key "txn_replenishment_details", "txn_replenishment_headers"
-  add_foreign_key "txn_replenishment_headers", "vans"
   add_foreign_key "users", "user_roles"
 end

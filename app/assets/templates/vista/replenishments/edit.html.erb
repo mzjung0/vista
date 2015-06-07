@@ -1,0 +1,35 @@
+<h4>Replenishment Edit</h4>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Reference #</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="data.reference_number" placeholder="Reference Number">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Van Code</label>
+    <div class="col-sm-10">
+      <angucomplete-alt id="van_code_ac" override-suggestions=false field-required=true minlength="2" remote-url="/api/search?class=vans&field=van_code&value=" title-field="van_code" description-field="van_code" placeholder="Search Van Code" selected-object="onVanCodeChange" initial-value="{{data.van.label}}"></angucomplete-alt>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Replenishment Date</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="data.replenishment_date" placeholder="Replenishment Date (YYYY-MM-DD)">
+    </div>
+  </div>
+
+  <div>
+    <replenishment-details></replenishment-details>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="save()" class="btn btn-primary"><span class="glyphicon glyphicon-thumbs-up"></span> Save</button>
+      <button ui-sref="replenishments_list" class="btn btn-link">Back</button>
+    </div>
+  </div>
+</form>

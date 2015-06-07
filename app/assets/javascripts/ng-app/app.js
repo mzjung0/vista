@@ -158,6 +158,22 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			controller: "UserRolesEditController"
 		})
 
+		.state('replenishments_list', {
+			url: '/app/replenishments',
+			templateUrl: "vista/replenishments/list.html",
+			controller: "ReplenishmentsListController"
+		})
+
+		.state('replenishments_add', {
+			url: '/app/replenishments_add',
+			templateUrl: "vista/replenishments/add.html",
+			controller: "ReplenishmentsAddController"
+		})
+		.state('replenishments_edit', {
+			url: '/app/replenishments_edit/:id',
+			templateUrl: "vista/replenishments/edit.html",
+			controller: "ReplenishmentsEditController"
+		})
 		// .state('backoffice', {
 		// 	url: '/backoffice',
 		// 	controller: "BackOfficeHomeCtrl",

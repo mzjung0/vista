@@ -1,0 +1,20 @@
+<h4>Replenishments <small><a ui-sref="replenishments_add">Create</a></small></h4>
+
+<table class="table">
+  <thead>
+    <th>Reference #</th>
+    <th>Van Code</th>
+    <th>Replenishment Date</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="replenishment in replenishments">
+      <td>{{::replenishment.reference_number}}</td>
+      <td>{{::replenishment.van.label}}</td>
+      <td>{{::replenishment.replenishment_date}}</td>
+      <td>
+        <a ui-sref="replenishments_edit({id: replenishment.id})">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

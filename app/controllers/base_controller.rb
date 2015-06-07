@@ -49,7 +49,7 @@ class BaseController < ApplicationController
   end
 
   # GET /api/v1/{plural_resource_name}
-  def index    
+  def index
     if can? :read, class_of_resource
       plural_resource_name = "@#{resource_name.pluralize}"
       resources = class_of_resource.where(query_params)
@@ -62,7 +62,7 @@ class BaseController < ApplicationController
     else
       render status: 403, json: {
           status: 'UNAUTHORIZED',
-          message: 'Unauthorized, please login'
+          message: 'Insufficient privileges'
         }
     end
   end
@@ -81,7 +81,7 @@ class BaseController < ApplicationController
     else          
       render status: 403, json: {
           status: 'UNAUTHORIZED',
-          message: 'Unauthorized, please login'
+          message: 'Insufficient privileges'
         }
     end
   end
