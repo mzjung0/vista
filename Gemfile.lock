@@ -42,6 +42,11 @@ GEM
       sprockets (~> 2)
       tilt
     arel (6.0.0)
+    audited (4.2.0)
+      rails-observers (~> 0.1.2)
+    audited-activerecord (4.2.0)
+      activerecord (~> 4.0)
+      audited (= 4.2.0)
     bcrypt (3.1.10)
     bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
@@ -165,6 +170,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-observers (0.1.2)
+      activemodel (~> 4.0)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -220,6 +227,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    tiny_tds (0.6.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     tzinfo-data (1.2015.4)
@@ -246,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
+  audited-activerecord (~> 4.0)
   byebug
   cancan
   capistrano
@@ -271,6 +280,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
+  tiny_tds
   tzinfo
   tzinfo-data
   uglifier (>= 1.3.0)

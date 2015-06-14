@@ -1,0 +1,22 @@
+<span>Audit Logs</span>
+
+<table class="table">
+  <thead>
+    <th>Date</th>
+    <th>Table</th>
+    <th>Record ID</th>
+    <th>Action</th>
+    <th>User</th>
+    <th>Changes</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="audit in audits">
+      <td>{{::audit.created_at}}</td>
+      <td>{{::audit.auditable_type}}</td>
+      <td>{{::audit.auditable_id}}</td>
+      <td>{{::audit.action}}</td>
+      <td>{{::audit.user.email}}</td>
+      <td><textarea cols="40" rows="6">{{::audit.audited_changes}}</textarea></td>
+    </tr>
+  </tbody>
+</table>

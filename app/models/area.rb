@@ -1,2 +1,3 @@
-class Area < ActiveRecord::Base
+class Area < BaseModel
+  audited
 end

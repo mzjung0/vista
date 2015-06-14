@@ -30,13 +30,15 @@ gem 'angular-rails-templates'
 
 gem "cancan"
 
-# gem "tiny_tds"
+gem "tiny_tds"
 
 platforms :ruby do
   gem 'unicorn'
 end
 
 gem "foreman"
+
+gem "audited-activerecord", "~> 4.0"
 
 # TZinfo gem for mingw & x64mingw compilers
 gem 'tzinfo'

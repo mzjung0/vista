@@ -15,7 +15,7 @@ class ReplenishmentHeadersController < BaseController
 
   private
     def replenishment_header_params
-      params.require(:replenishment).permit(:reference_number, :van_id, :replenishment_date, 
+      params.require(:replenishment_header).permit(:reference_number, :van_id, :replenishment_date, 
         {:details => [:replenishment_header_id, :item_id, :uom_id, :quantity]})
     end
 

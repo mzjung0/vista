@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       :salesmen, :storetypes, :uoms, :users, :user_roles, :vans, :vat_postings, :replenishment_headers
     resources :search, only: [:index]
     resources :current_user, only: [:index]
+    resources :audits, only: [:index]
   end
   
   match '/404', to: 'errors#not_found', via: :all

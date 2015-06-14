@@ -174,6 +174,11 @@ klaseko.config(['$httpProvider', '$stateProvider', '$locationProvider', '$urlRou
 			templateUrl: "vista/replenishments/edit.html",
 			controller: "ReplenishmentsEditController"
 		})
+		.state('audits', {
+			url: '/app/audits',
+			templateUrl: "vista/audits.html",
+			controller: "AuditsController"
+		})
 		// .state('backoffice', {
 		// 	url: '/backoffice',
 		// 	controller: "BackOfficeHomeCtrl",

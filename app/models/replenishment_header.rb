@@ -6,7 +6,8 @@ class ReplenishmentHeader < ActiveRecord::Base
     {
       id: id,
       reference_number: reference_number,
-      van: {        
+      van_id: van_id,
+      van: {
         id: van_id,
         label: self.van ? self.van.van_code : "",
       },

@@ -7,10 +7,12 @@ class ReplenishmentDetail < ActiveRecord::Base
     {
       id: id,      
       replenishment_header_id: replenishment_header_id,
+      item_id: item_id,
       item: {
         id: item_id,
         label: self.item ? self.item.item_code : ""
       },
+      uom_id: uom_id,
       # this should be just uom, not item_uom
       uom: {
         id: uom_id,

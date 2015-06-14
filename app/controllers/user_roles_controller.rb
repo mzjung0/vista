@@ -22,7 +22,8 @@ class UserRolesController < BaseController
           :vat_postings => [:create, :update, :delete, :view], 
           :discount_groups => [:create, :update, :delete, :view], 
           :invoices => [:create, :update, :delete, :view], 
-          :replenishment_headers => [:create, :update, :delete, :view]
+          :replenishment_headers => [:create, :update, :delete, :view],
+          :audits => [:view]
         ]
       })
     end

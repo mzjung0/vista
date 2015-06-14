@@ -8,7 +8,11 @@ class SearchController < ApplicationController
       @needle = params[:value] + "%"
     end
 
-    @results = @class.where("#{params[:field]} ILIKE (?)", "#{@needle}").limit(20).as_json
+    if params[:field] == "id"
+      @results = @class.where("#{params[:field]} = (?)", "#{params[:value]}").first.as_json
+    else
+      @results = @class.where("#{params[:field]} ILIKE (?)", "#{@needle}").limit(20).as_json
+    end
     render json: @results
   end
   
